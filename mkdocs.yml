@@ -1,0 +1,66 @@
+site_name: 自然语言处理
+site_description: 自然语言处理课程网站 · Natural Language Processing Course
+site_author: 魏笔凡（Bifan Wei）
+site_url: https://weibifan.github.io/nlp/
+repo_url: https://github.com/weibifan/nlp
+repo_name: weibifan/nlp
+edit_uri: edit/main/docs/
+copyright: 西安交通大学 · 自然语言处理课程
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+
+nav:
+  - 首页: index.md
+  - 教学大纲: syllabus.md
+  - 讲义: lectures/index.md
+  - 实验: labs/index.md
+  - 作业: assignments/index.md
+  - 参考资料: resources.md
+
+plugins:
+  - search:
+      lang: zh
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
