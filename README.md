@@ -51,7 +51,23 @@ python -m venv .venv
 .venv/Scripts/mkdocs build
 ```
 
-推送到 `main` 分支后，由 GitHub Actions 自动构建并发布到 GitHub Pages。
+也可以用现成脚本：双击 `serve.bat`（必要时自动建环境并装依赖，然后启动本地预览）。
+
+### 部署
+
+站点发布在 **https://weibifan.github.io/nlp/**，内容位于 `gh-pages` 分支，由 GitHub Pages 托管。
+
+| 方式 | 操作 |
+|------|------|
+| 一键脚本 | 双击 `deploy.bat` |
+| 命令行 | `.venv/Scripts/mkdocs gh-deploy --force` |
+| 自动 | 推送到 `main` 后由 GitHub Actions 触发（见下） |
+
+日常更新流程：改 `docs/` 下的 Markdown → `serve.bat` 本地预览 → 提交推送 `main` → `deploy.bat` 发布。
+
+> **关于自动部署**：`.github/workflows/deploy.yml` 尚未提交——当前 GitHub 令牌缺少
+> `workflow` 权限，GitHub 拒绝创建该文件，配置暂存于 `../mytemp/deploy.yml.pending`。
+> 令牌补上该权限后放回该路径并推送，即可实现推送 `main` 自动发布。
 
 ### 许可
 
@@ -91,7 +107,15 @@ python -m venv .venv
 .venv/Scripts/mkdocs serve                          # http://127.0.0.1:8000/nlp/
 ```
 
-Pushing to `main` triggers a GitHub Actions workflow that builds the site and deploys it to GitHub Pages.
+### Deployment
+
+The site is published at **https://weibifan.github.io/nlp/** from the `gh-pages` branch.
+
+- One-click: run `deploy.bat`
+- Command line: `.venv/Scripts/mkdocs gh-deploy --force`
+- Automatic (pending): a GitHub Actions workflow on push to `main` — the workflow file
+  is not committed yet because the current token lacks the `workflow` scope; it is parked
+  at `../mytemp/deploy.yml.pending`.
 
 ### License
 

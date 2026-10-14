@@ -1,0 +1,8 @@
+# 统一行尾：仓库内一律 LF；批处理文件保持 CRLF（Windows 需要）
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.png binary
+*.jpg binary
+*.pdf binary
+*.pptx binary
